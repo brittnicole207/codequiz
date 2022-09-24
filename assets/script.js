@@ -29,8 +29,6 @@ titleEL.textcontent = currentQuestion.title;
 choicesEl.innterHTML = ''; 
 
 
-
-
 /* function score() {
     if () {
         let score = secondsLeft
