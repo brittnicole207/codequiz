@@ -1,7 +1,7 @@
 var startButton = document.querySelector("start-button");
 var startScreenEl = document.querySelector("#start-quiz");
 var timerTag = document.querySelector(".time");
-var submitAnswer = document.querySelector("#next");
+var $submitAnswer = document.querySelector("#next");
 var questionDiv = document.querySelector("question");
 
 let questionCard = 0

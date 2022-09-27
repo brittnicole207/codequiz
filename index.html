@@ -1,26 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" href="./assets/style/css">
+    <link rel = "stylesheet" href="./assets/styles.css">
     <script defer src="./assets/script.js"></script>
-    <title>Code Quiz</title>
+    <title>Coding Quiz</title>
 </head>
+
+<!--header-->
 <header>
     <p class="highscore" style="text-align:left">Highscore</p>
     <p class="timer" style="text-align:right">Timer</p>
 </header>
 
 <body>
- 
-    <h1>Code Quiz Challenge</h1>
-        <p id="start-screen"> Answer the following questions within the time limit. If you get it wrong, it will take 15 seconds off your time.
-        </p>
 
-    <div id="question" class="hide"></div>
-        <h2 class="titleHeader" style="text-align:left;"></h2>
-        <button id="initiate-quiz">Start Button</button>
-</body>
+    <!--opening page view-->
+    <h1>Code Quiz Challenge</h1>
+        <main>
+            <p id="timer"></p>
+                <section id="beginMessage"
+                    <h2 id="startHeader">Welcome to the coding quiz!</h2>
+                    <p id="instructions">Answer the following questions within the time limit. Once you click begin, the timer will start. If you get a question incorrect, it will take 15 seconds off your time. Have fun! 
+                    <button id="startButton">Start</button> <!--user clicks to start quiz and timer begins-->
+                </section>
+    
+    <!--questions will appear-->
+                <form>
+                    <h3 id="question"</h3>
+                        <div class ="options" data-place"1">
+                            <input type="radio" id="option1" name="question" value="">
+                            <p id="opt1"></p>
+                        </div>
+                        <div class="options" data-place="2">
+                            <input type="radio" id="option2" name="question"
+                            value="">
+                            <p id="opt2"></p>
+                        </div>
+                        <div class="options" data-place="3">
+                            <input type="radio" id="option3" name="question"
+                            value="">
+                            <p id="opt3"></p>
+                        </div>
+                        <div class="options" data-place="4">
+                            <input type="radio" id="option4" name="question"
+                            value="">
+                            <p id="opt4"></p>
+                        </div>
+                    
+                    <!--the user will be able to hit the next button-->
+                    <button id="nextButton">Next</button>
+                    <p id="Response"></p>
+                </form>
+
+                <!--this will display highscores-->
+                <section id="highscore">
+                    <h2>Highscores</h2>
+                    <ul id="scoreList"></ul>
+                    <button id="clear">Clear</button>
+                    <a id="home" href=".index.html">Home</a>
+                </section>
+            
+        </main>
+    </body>
 </html>
