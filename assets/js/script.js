@@ -61,11 +61,11 @@ let questionIndex = 0;
 //The timer seconds will be equal to 75 upon start
 let timerSeconds = 75; 
 
-let highscores = [
-    {user: 'tester', score: 75},
-    {user: 'yours', score: 100}
-];
 
+let highscores = [
+    {user: 'someone', score: 75},
+    {user: 'else', score: 100}
+];
 
 let correctAnswers = 0;
 let incorrectAnswers = 0;
@@ -112,9 +112,9 @@ const updateTimer = () => {
             timerSeconds = 0;
             endQuiz();
             }
-        };
+        }
 
-const setFeedback = (text = ' ')=> { // feedback text will orginially be a blank string
+const setFeedback = (text = '')=> { // feedback text will orginially be a blank string
     const feedback = document.getElementById('feedback')
     if (feedback) {
         feedback.innerText = text;
@@ -185,7 +185,6 @@ const renderNextQuestion = () => {
 
     if (questionIndex < quizQuestions.length) {
         renderQuestion(quizQuestions[questionIndex]);
-
     }
     else {
         endQuiz();
@@ -198,7 +197,7 @@ function renderHighscores() {
         highscoresList.replaceChildren([]);
 
         //Sort by highest score
-        highscores.sort((a, b) => a.score , b.score);
+        highscores.sort((a, b) => a.score < b.score);
 
         highscores.forEach((hs, index) => {
             //Only show top 10 highscores 
@@ -214,12 +213,11 @@ function renderHighscores() {
 
 function submitHighscores() {
     const input = document.getElementById('highscores-input');
-    if (input)
-        {
+    if (input) {
         const score = correctAnswers * timerSeconds;
         const user = input.value; 
         highscores.push({user, score});
-        input.value = '';
+        input.value ='';
     }
     renderHighscores();
 }
@@ -237,24 +235,29 @@ function showHighscores() {
 
     const incorrect = document.getElementById('incorrect-answers');
     if (incorrect) {
-        incorrect.innerText = `Incorrect Answers: $(incorrectAnswers)`; 
+        incorrect.innerText = `Incorrect Answers: ${incorrectAnswers}`; 
+    }
+
+    const timeRemaining = document.getElementById('time-remaining');
+    if (timeRemaining) {
+        timeRemaining.innerText = `Time Remaining: ${timerSeconds}`;
     }
 
     const highscore = document.getElementbyId('highscore');
     if (highscore) {
-        highscore.innerTet = correctAnswers * timerSeconds;
+        highscore.innerText = correctAnswers * timerSeconds;
     }
 }
 
 function resetQuiz() {
-    showNode ('welcome', true);
-    showNode ('quiz', false); 
-    showNode ('highscores', false);
+    showNode('welcome', true);
+    showNode('quiz', false); 
+    showNode('highscores', false);
 
-    setFeedback ('');
+    setFeedback('');
 
     questionIndex = 0;
-    timerSeocnds = 75;
+    timerSeconds = 75;
     correctAnswers = 0;
     incorrectAnswers = 0; 
 }
@@ -269,4 +272,6 @@ function startQuiz() {
 
     showNode('quiz', true);
 }
+
+
 

@@ -1,9 +1,26 @@
-This assignment is a code quiz that allows the user to take a quiz on JS. 
+October 16, 2022 
+
+Errors: 
+Highscores input form does not show up at the end
+The span id "highscore" does not generate a highscore. 
+
+
+Addiitonal function I'd like: 
+e.g. 
+1. User clicks wrong answer
+3. "You have selected the wrong answer" appears on same page
+4. User hits next to go to the next question 
+4. Feedback clears out and new question appears 
+
+
+
+
+<!--This assignment is a code quiz that allows the user to take a quiz on JS. 
 
 User Story: 
 AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
+I WANT to take a timed quiz on JavaScript fundamentals that stores high scores.-->
+<!--SO THAT I can gauge my progress compared to my peers-->
 
 
 <!-- Acceptance Criteria:

@@ -22,7 +22,7 @@
         
         <!--Button will hide after click-->
         <button onclick="startQuiz()">Start Quiz</button>
-    </div>
+        </div>
 
     <div id="quiz" class="hide">
         <h2>
@@ -53,17 +53,17 @@
             <div id="incorrect-answers"></div>
             <div id="time-remaining"></div>
 
-            <p>Your total score with seconds remaining * correct scores:<span id="highschore"></span></p>
-        </div> 
+            <p>Your total score with seconds remaining * correct answers: <span id="highscore"></span></p>
 
     <!--High Score Input Form-->
         <div id="highscores-input" class="hide">
             <p>Enter your name to add it to the high scores:</p>
-            <input type="text" id="highscores-input">
+            <input type="text" id="highscores-input" />
             <button type="button" onclick="submitHighscores()">Submit</button>
             <button type="button" onclick="resetQuiz()">Try Again</button>
         </div>
     </div>
+</div>
 
 <script type="text/javascript" src="assets/js/script.js"></script>
 
