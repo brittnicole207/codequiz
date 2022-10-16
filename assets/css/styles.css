@@ -1,0 +1,27 @@
+h2 {
+    text-align: center;
+}
+
+.container {
+    max-width: 960px;
+    margin: auto;
+}
+
+#welcome h2,
+#quiz h2,
+#highscores h2 {
+    text-transform: capitalize;
+}
+
+#highscores-list {
+    max-width: 55%;
+    margin-left: auto;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}

@@ -1,68 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/styles.css">
-    <script defer src="assets/script.js"></script>
-    <script defer src="assets/quizQuestions.js"></script>
+    <link rel="stylesheet" href="./assets/css/styles.css">
     <title>Coding Quiz</title>
+</head>
 
-</head>
-    <title>Coding Quiz</title> 
-</head>
 
 <body>
-<main>
-    <header>
-        <h1>Coding Quiz Challenge</h1>
-        <p> Try to answer the following JavaScript related questions in the time alloted. Keep in mind that incorrect answers will penalize your score/time by 10 seconds. </p>
-    </header>
+    <div class="container">
+        <div id="welcome" class="show">
+            <h2>Welcome to the Coding Quiz!</h2>
 
-    <div id="quiz">
-            <div>Timer:<span id="seconds-remaining"></span></div>
-            <div id="timer"></div>
-
-            <div id="control">
-                <button id="startGame"  onclick="startGame()">Start</button>
-            </div>
-
-            <span id="question-number"></span>
-            <div id="questions"></div>
-            <div id="feedback"></div>
-            <button id="next">Next</button>
-
-        </h2>
+            <p> 
+            Try to answer the following JavaScript related questions in the time alloted. 
+            Any incorrect answers will penalize your score/time by 10 seconds. 
+            </p>
         
+        <!--Button will hide after click-->
+        <button onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <div id="quiz" class="hide">
+        <h2>
+        Quiz Question
+        #<span id="question-number"></span>
+        </h2>
+
+    <div>
+        <p>Time Remaining:</p><p id="seconds-remaining"></p>
+    </div>
 
         <p id="question"></p>
 
-    <div id="highscores" class="hide">
-        <h2>Highscores</h2>
+        <ol id="answers-list"></ol>
 
-        <ol id="highscore-list"></ol>
-        <ol id="highscores-list"></ol>
+        <div id="feedback"></div>
+    
+    </div>
 
-        <h4>Your Results</h4>
-        <div id="correct-answers"></div>
-        <h4>Your Results</h4>
+    <!--Highscore Page-->
+        <div id="highscores" class="hide">
+            <h2>Highscores</h2>
 
-        <p>Your total score with seconds remaining * correct scores: <span id="highscore"></span></p>
+            <ol id="highscores-list"></ol>
 
-        <button type="button" onclick="resetQuiz()">Go back home</button>
-        <div class="highscores-input">
+            <h4>Your Results</h4> 
+            <div id="correct-answers"></div>
+            <div id="incorrect-answers"></div>
+            <div id="time-remaining"></div>
+
+            <p>Your total score with seconds remaining * correct scores:<span id="highschore"></span></p>
+        </div> 
+
+    <!--High Score Input Form-->
+        <div id="highscores-input" class="hide">
             <p>Enter your name to add it to the high scores:</p>
-            <input type="text" id="highscores-input" />
+            <input type="text" id="highscores-input">
             <button type="button" onclick="submitHighscores()">Submit</button>
-            <button type="button" onclick="resetQuiz()">Go back home</button>
+            <button type="button" onclick="resetQuiz()">Try Again</button>
         </div>
     </div>
-</div>
-        </div>
 
-</main>
+<script type="text/javascript" src="assets/js/script.js"></script>
+
 </body>
-</html>
+</html> 
 
 

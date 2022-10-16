@@ -1,0 +1,7 @@
+Id for Start game button has id of "startGame" but startGame() is looking for id 'start', not 'startGame' 
+> Means startButton variable is undefined [Code is trying to access it's classList property which doesn't exist on an undefined value"]
+
+updatetimer function doesn't accept parameters, but startGame I am trying to pass a variable as a parameter
+
+Not properly closing updateQuestion() - close bracket, not close curly bracket
+Trailing "," instead of ;" line 178
