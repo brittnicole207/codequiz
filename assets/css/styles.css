@@ -25,3 +25,8 @@ h2 {
 .show {
     display: block;
 }
+
+hr.rounded {
+  border-top: 8px solid #bbb;
+  border-radius: 5px;
+}

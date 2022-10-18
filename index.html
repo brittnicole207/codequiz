@@ -35,11 +35,10 @@
     </div>
 
         <p id="question"></p>
-
         <ol id="answers-list"></ol>
-
-        <div id="feedback"></div>
-    
+        <!--Border for feedback-->
+        <hr class="rounded">
+        <p id="feedback"></p>
     </div>
 
     <!--Highscore Page-->
@@ -49,16 +48,17 @@
             <ol id="highscores-list"></ol>
 
             <h4>Your Results</h4> 
-            <div id="correct-answers"></div>
-            <div id="incorrect-answers"></div>
-            <div id="time-remaining"></div>
+            <p id="correct-answers"></p>
+            <p id="incorrect-answers"></p>
+            <p id="time-remaining"></p>
 
-            <p>Your total score with seconds remaining * correct answers: <span id="highscore"></span></p>
+            <!-- Future Enhancement to tell user how their score is calculated -->
+            <!--<p>Your total score with seconds remaining * correct answers: <span id="highscore"></span></p>-->
 
     <!--High Score Input Form-->
         <div id="highscores-input" class="hide">
             <p>Enter your name to add it to the high scores:</p>
-            <input type="text" id="highscores-input" />
+            <input type="text" id="input" />
             <button type="button" onclick="submitHighscores()">Submit</button>
             <button type="button" onclick="resetQuiz()">Try Again</button>
         </div>

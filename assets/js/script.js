@@ -1,14 +1,10 @@
-//store time 
-//display time 
-//take 10 seconds off when it's wrong 
-
-//quizQuestions is a const that is an array of objects including each question of the quiz
-
+//Global Variables
+//Array with quiz questions that the quiz can access
 const quizQuestions = [
     {   
       description: 'Which of the following keywords is used to define a variable in JavaScript?',
       answers: {
-        'a': 'var',
+        'a': 'let',
         'b': 'class',
         'c': 'div',
         'd': 'id',
@@ -16,7 +12,7 @@ const quizQuestions = [
       correctAnswer: 'a'
     },
     {
-      description: 'Which of the following is corect about JS?',
+      description: 'Which of the following is correct about JS?',
       answers: {
         a: 'JavaScript is a scripting language used to make the website interactive',
         b: 'JavaScript is an assembly language used to make the website interactive',
@@ -55,23 +51,21 @@ const quizQuestions = [
         correctAnswer: 'c'
     },
 ];
-
 //When a function accesses the questionIndex, it will start at the first question in the array. 
 let questionIndex = 0; 
 //The timer seconds will be equal to 75 upon start
 let timerSeconds = 75; 
-
-
+//The highscore list will populated upon the showHighscores
 let highscores = [
-    {user: 'someone', score: 75},
-    {user: 'else', score: 100}
+    {user: 'Amber', score: 100},
+    {user: 'Jethro', score: 75}
 ];
-
+//The number of correct answers & incorrect answers 
 let correctAnswers = 0;
 let incorrectAnswers = 0;
 let quizEnded = false;
 
-
+//showNode accesses element id & class to determine when it will be displayed 
 const showNode = (id, show = false) => {
     const element = document.getElementById(id);
 
@@ -92,11 +86,13 @@ const showNode = (id, show = false) => {
     }
 };
 
+//When the quiz ends, the showHighscores function will run
 const endQuiz = () => {
     quizEnded = true; 
     showHighscores();
 }
 
+//This callback function allows the timer to be updated 
 const updateTimer = () => {
     if (quizEnded) return;
 
@@ -114,27 +110,30 @@ const updateTimer = () => {
             }
         }
 
-const setFeedback = (text = '')=> { // feedback text will orginially be a blank string
+//Allows the feedback to be displayed in the feedback element based on the answer the user selects
+const setFeedback = (text = '')=> { 
     const feedback = document.getElementById('feedback')
     if (feedback) {
         feedback.innerText = text;
     }
 }
 
+//Correct Answer renders next question
 const correctAnswer = () => {
         correctAnswers++;
-        timerSeconds += 10;
-        setFeedback('You have selectd the correct answer');
+        setFeedback('You have selected the correct answer. Great work!');
         renderNextQuestion();
 };
 
+//Wrong answer takes 10 seconds off users score 
 const wrongAnswer = () => {
         incorrectAnswers++;
         timerSeconds -= 10;
-        setFeedback('You have selected the wrong answer');
+        setFeedback('You have selected the wrong answer. The timer has subtracted 10 seconds.');
         renderNextQuestion();
 };
 
+//Returns the correct or wrong answre function when the user selects an answer
 const createButtonNode = (text, correct = false) => {
     let btn = document.createElement('button');
     btn.classList.add('quiz-btn');
@@ -151,6 +150,7 @@ const createButtonNode = (text, correct = false) => {
     return btn;
 }
 
+//Shows the answer list in a list item
 const renderAnswersList = (answers, correct) => {
     const answersList = document.getElementById('answers-list');
     if (!answersList) return;
@@ -166,6 +166,7 @@ const renderAnswersList = (answers, correct) => {
     }
 }
 
+//Shows the questions and quetion number by accessing te quizQuestion array
 const renderQuestion = (quizQuestion) => {
     const questionNum = document.getElementById('question-number');
     if (questionNum) {
@@ -180,6 +181,7 @@ const renderQuestion = (quizQuestion) => {
     renderAnswersList(quizQuestion.answers, quizQuestion.correctAnswer);
 };
 
+//Displays the next question and goes through the array until the end. Then it runs the endQuiz function. 
 const renderNextQuestion = () => {
     questionIndex++;
 
@@ -191,6 +193,7 @@ const renderNextQuestion = () => {
     }
 }
 
+//Highscores will display. A new entry will append the list with the users input and score
 function renderHighscores() {
     const highscoresList = document.getElementById('highscores-list');
     if (highscoresList) {
@@ -211,20 +214,22 @@ function renderHighscores() {
     }
 }
 
+//The user will enter their highscore and it will push it to the list
 function submitHighscores() {
     const input = document.getElementById('highscores-input');
     if (input) {
         const score = correctAnswers * timerSeconds;
         const user = input.value; 
         highscores.push({user, score});
-        input.value ='';
     }
     renderHighscores();
 }
 
+//Runs showNode and then provides number of correct and incorrect answers shown
 function showHighscores() {
     showNode('quiz', false);
     showNode('highscores', true);
+    showNode('highscores-input', true);
 
     renderHighscores();
 
@@ -243,12 +248,13 @@ function showHighscores() {
         timeRemaining.innerText = `Time Remaining: ${timerSeconds}`;
     }
 
-    const highscore = document.getElementbyId('highscore');
-    if (highscore) {
-        highscore.innerText = correctAnswers * timerSeconds;
-    }
+    //const highscore = document.getElementById('highscore');
+    //if (highscore) {
+    //    highscore.innerText = correctAnswers * timerSeconds;
+    //}
 }
 
+//Resets quiz in the beginning
 function resetQuiz() {
     showNode('welcome', true);
     showNode('quiz', false); 
@@ -262,6 +268,7 @@ function resetQuiz() {
     incorrectAnswers = 0; 
 }
 
+//Access reset quiz to refresh, tells welcome page to hide, begins timer. 
 function startQuiz() {
     resetQuiz();
 
