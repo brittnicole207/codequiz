@@ -216,10 +216,10 @@ function renderHighscores() {
 
 //The user will enter their highscore and it will push it to the list
 function submitHighscores() {
-    const input = document.getElementById('highscores-input');
+    const input = document.getElementById('input');
     if (input) {
         const score = correctAnswers * timerSeconds;
-        const user = input.value; 
+        const user = input.value;
         highscores.push({user, score});
     }
     renderHighscores();
